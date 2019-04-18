@@ -1,0 +1,29 @@
+<!-- <app-filter-currency class="row mt-5" (filterChange)=onFilterChange($event)></app-filter-currency> -->
+<app-filter-currency class="row mt-5" 
+  (filterChange)=onFilterChange($event)
+  (realTimeSearch)="search($event)"></app-filter-currency>
+
+<div class="card-columns">
+    <div *ngFor="let currency of pagedCurrency" class="card p-3">
+      <div class="card-body">
+        <h5 class="card-title">{{currency?.code}}</h5>
+        <h6 class="text-muted">{{currency?.name}}</h6>
+        <p class="card-text">is_crypto: {{currency?.is_crypto}}</p>
+        <a class='btn btn-primary' [routerLink]="['/currencyDetails',currency.code]">Details</a>
+      </div>
+    </div>
+</div>
+
+<app-pagination class="row"
+  [itemsPerPage]="itemPerpage"
+  [totalSize]="AllFilteredCurrencies.length"
+  (pageChange)="onPageChange($event)"
+  (itemPerPageChange)="onItemPerPageChange($event)">
+</app-pagination>
+
+<!-- <app-pagination class="row"
+  [itemsPerPage]="itemPerpage"
+  [totalSize]="AllCurencies.length"
+  (pageChange)="onPageChange($event)"
+  (itemPerPageChange)="onItemPerPageChange($event)">
+</app-pagination> -->

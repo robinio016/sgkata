@@ -1,0 +1,39 @@
+<div class="col-md-3">
+    <!-- Actual search box -->
+    <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input #filter type="text" class="form-control" placeholder="Search">
+    </div>
+</div>
+<div class="form-group col-md-6">
+    <div class="row">
+        <label for="currencyFilterBy col-md-3">filter By:</label>
+        <select class="form-control col-md-3 ml-3" id="currencyFilterBy" (change)=onFilterChange($event.target.value)>
+            <option value="code">code</option>
+            <option value="name">name</option>
+        </select>
+        <button class="col-md-3  ml-2 btn btn-primary" (click)="applyFilter(filter.value)">Apply</button>
+    </div>   
+</div>
+
+
+<!-- implmentation of a real time search -->
+<div class="col-md-3">
+    <div class="form-group row has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text"
+            id="searchReal" 
+            class="form-control" 
+            placeholder="Real Time Search"
+            (keyup)="onKeyUp($event.target.value)">
+    </div>
+</div>
+<!-- <div class="col-md-3">
+    <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" 
+            class="form-control" 
+            placeholder="Search"
+            (keyUp)="searchTerm$.next($event.target.value)">
+    </div>
+</div> -->

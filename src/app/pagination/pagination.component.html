@@ -1,0 +1,42 @@
+<div class="col-md-4">
+  <div class="form-group row">
+    <div class="col-md-4">
+      <label for="DisplayPerPage"><strong>Display:</strong> </label>
+    </div>
+    <div class="col-md-8">
+      <select class="form-control" id="DisplayPerPage" (change)="setPaginationPerPage($event.target.value)">
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+        </select>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8">
+  <ul class="pagination">
+    <li class="page-item" (click)="selectPage(1,$event)" [class.disabled]="currentPage == 1">
+      <a class="page-link" href="" title="Go to first page">&laquo;</a>
+    </li>
+    <li class="page-item" (click)="selectPage(currentPage - 1,$event)" [class.disabled]="currentPage == 1">
+      <a class="page-link" href="" title="Go to previous page">&lsaquo;</a>
+    </li>
+    <li class="page-item disabled" *ngIf="(currentPage - range) > 1">
+      <a class="page-link" href="" (click)=cancelEvent($event)>...</a>
+    </li>
+    <li class="page-item" *ngFor="let page of pages | async" [class.active]="page == currentPage">
+      <a class="page-link" href="" (click)="selectPage(page,$event)">
+        {{page}}
+      </a>
+    </li>
+    <li class="disabled page-item" *ngIf="(currentPage + range) < totalPageNumber">
+      <a class="page-link" href="" (click)=cancelEvent($event)>...</a>
+    </li>
+    <li class="page-item" (click)="selectPage(currentPage + 1, $event)" [class.disabled]="currentPage == totalPageNumber">
+      <a class="page-link" href="" title="Go to next page">&rsaquo;</a>
+    </li>
+    <li class="page-item" (click)="selectPage(totalPageNumber,$event)" [class.disabled]="currentPage == totalPageNumber">
+      <a class="page-link" href="" title="Go to last page">&raquo;</a>
+    </li>
+  </ul>
+</div>
