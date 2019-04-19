@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
-import { CurrencyService } from '../_services/currency.service';
-import { Currency } from '../_models/currency';
-import { FilterItem } from '../_models/filterItem';
+import { CurrencyService } from '../../_services/currency.service';
+import { Currency } from '../../_models/currency';
+import { FilterItem } from '../../_models/filterItem';
 import { _getComponentHostLElementNode } from '@angular/core/src/render3/instructions';
-import { PaginationComponent } from '../pagination/pagination.component';
-import { RealTimeFilter } from '../_models/realTimeFilter';
+import { RealTimeFilter } from '../../_models/realTimeFilter';
 
 
 @Component({

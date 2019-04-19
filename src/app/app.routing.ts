@@ -1,15 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
-import { DetailCurrencyComponent } from './list-currency/detail-currency/detail-currency.component';
-import { ListCurrencyComponent } from './list-currency/list-currency.component';
 import { NgModule } from '@angular/core';
 
-const routes: Routes = [
-  { path: 'currencyDetails/:code' , component: DetailCurrencyComponent },
-  { path: '' , component: ListCurrencyComponent }
-];
+const appRoutes: Routes = [];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(appRoutes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
