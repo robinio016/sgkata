@@ -1,20 +1,9 @@
 pipeline {
-    agent any
-
+    agent { docker { image 'node:6.3' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                bat 'echo hello world'
             }
         }
     }
