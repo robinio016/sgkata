@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FilterItem } from '../_models/filterItem';
+import { FilterItem } from '../../_models/filterItem';
 import { Subject } from 'rxjs';
-import { RealTimeFilter } from '../_models/realTimeFilter';
+import { RealTimeFilter } from '../../_models/realTimeFilter';
 
 @Component({
   selector: 'app-filter-currency',
